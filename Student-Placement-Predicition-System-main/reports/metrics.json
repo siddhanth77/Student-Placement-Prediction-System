@@ -1,0 +1,123 @@
+{
+    "run_id": "RUN_B8CFBB90",
+    "best_model_name": "AdaBoost",
+    "test_accuracy": 0.6818,
+    "test_precision": 0.6783,
+    "test_recall": 0.7443,
+    "test_f1_score": 0.7098,
+    "test_roc_auc": 0.7423,
+    "best_params": {},
+    "processed_features": [
+        "Age",
+        "CGPA",
+        "10th Percentage",
+        "12th Percentage",
+        "Backlogs",
+        "Attendance",
+        "Technical Skills",
+        "Programming Score",
+        "Aptitude Score",
+        "Communication Skills",
+        "Soft Skills",
+        "Projects Completed",
+        "Internships",
+        "Hackathons",
+        "Certifications",
+        "Workshops",
+        "Leadership Score",
+        "Resume Score",
+        "Interview Score",
+        "Academic_Performance_Index",
+        "Employability_Readiness_Score",
+        "Skills_Diversity_Index",
+        "Gender_Female",
+        "Gender_Male",
+        "Branch_Civil Engineering",
+        "Branch_Computer Science",
+        "Branch_Electrical Engineering",
+        "Branch_Electronics & Communication",
+        "Branch_Information Technology",
+        "Branch_Mechanical Engineering",
+        "Degree_B.Tech",
+        "Degree_BCA",
+        "Degree_M.Tech",
+        "Degree_MCA",
+        "English Proficiency_High",
+        "English Proficiency_Low",
+        "English Proficiency_Medium"
+    ],
+    "leaderboard": [
+        {
+            "Model": "Logistic Regression",
+            "CV Accuracy": 0.6645,
+            "CV Precision": 0.6783,
+            "CV Recall": 0.6827,
+            "CV F1-Score": 0.6804,
+            "CV ROC-AUC": 0.729
+        },
+        {
+            "Model": "Decision Tree",
+            "CV Accuracy": 0.5907,
+            "CV Precision": 0.6079,
+            "CV Recall": 0.6115,
+            "CV F1-Score": 0.6096,
+            "CV ROC-AUC": 0.5897
+        },
+        {
+            "Model": "Random Forest",
+            "CV Accuracy": 0.6657,
+            "CV Precision": 0.6763,
+            "CV Recall": 0.6923,
+            "CV F1-Score": 0.6842,
+            "CV ROC-AUC": 0.7277
+        },
+        {
+            "Model": "Extra Trees",
+            "CV Accuracy": 0.6532,
+            "CV Precision": 0.6645,
+            "CV Recall": 0.681,
+            "CV F1-Score": 0.6725,
+            "CV ROC-AUC": 0.7123
+        },
+        {
+            "Model": "Gradient Boosting",
+            "CV Accuracy": 0.6714,
+            "CV Precision": 0.6752,
+            "CV Recall": 0.7166,
+            "CV F1-Score": 0.6952,
+            "CV ROC-AUC": 0.7381
+        },
+        {
+            "Model": "AdaBoost",
+            "CV Accuracy": 0.6739,
+            "CV Precision": 0.6755,
+            "CV Recall": 0.7279,
+            "CV F1-Score": 0.7,
+            "CV ROC-AUC": 0.7375
+        },
+        {
+            "Model": "XGBoost",
+            "CV Accuracy": 0.6448,
+            "CV Precision": 0.6519,
+            "CV Recall": 0.6888,
+            "CV F1-Score": 0.6698,
+            "CV ROC-AUC": 0.7003
+        },
+        {
+            "Model": "LightGBM",
+            "CV Accuracy": 0.657,
+            "CV Precision": 0.6653,
+            "CV Recall": 0.6927,
+            "CV F1-Score": 0.6787,
+            "CV ROC-AUC": 0.7123
+        },
+        {
+            "Model": "CatBoost",
+            "CV Accuracy": NaN,
+            "CV Precision": NaN,
+            "CV Recall": NaN,
+            "CV F1-Score": NaN,
+            "CV ROC-AUC": NaN
+        }
+    ]
+}
