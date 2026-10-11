@@ -1,5 +1,5 @@
 {
-    "run_id": "RUN_B8CFBB90",
+    "run_id": "RUN_7D0E9EB4",
     "best_model_name": "AdaBoost",
     "test_accuracy": 0.6818,
     "test_precision": 0.6783,
@@ -113,11 +113,11 @@
         },
         {
             "Model": "CatBoost",
-            "CV Accuracy": NaN,
-            "CV Precision": NaN,
-            "CV Recall": NaN,
-            "CV F1-Score": NaN,
-            "CV ROC-AUC": NaN
+            "CV Accuracy": 0.6705,
+            "CV Precision": 0.674,
+            "CV Recall": 0.7166,
+            "CV F1-Score": 0.6946,
+            "CV ROC-AUC": 0.737
         }
     ]
 }
