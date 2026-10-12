@@ -1,134 +1,224 @@
 # Student Placement Prediction System
 
-A web application that predicts student placement outcomes based on academic records, skill scores, and extracurricular activity. The system compares multiple classifiers, selects the best performing model, and exposes it through a REST API with an interactive analytics dashboard.
+A full-stack machine learning project that predicts whether a student is likely to get placed based on academic performance, technical skills, soft skills, internships, projects, and other placement-related indicators. The project combines a training pipeline, interpretability tools, a Streamlit dashboard, and a REST API into a single end-to-end placement analytics platform.
 
----
+## Overview
 
-## Features
+This system helps universities, training centers, and placement teams evaluate student readiness for campus hiring. It supports:
 
-1. **Multi-model benchmarking**: Evaluates 13 classifiers (Logistic Regression, Decision Tree, Random Forest, XGBoost, LightGBM, CatBoost, SVM, KNN, MLP, etc.) using 5-fold cross-validation and ranks them by F1-score.
-2. **Model explanations (SHAP)**: Shows global feature importance and per-prediction waterfall/force plots so you can see which factors drove each result.
-3. **Interactive charts**: Plotly-based visualisations covering cohort demographics, branch-wise placement rates, and skill correlations.
-4. **Resume pre-fill**: Reads a plain-text resume and extracts skills/project counts to pre-fill the prediction form.
-5. **Batch predictions**: Upload a CSV of student records and download the file annotated with predictions and probability scores.
-6. **Prediction audit log**: All predictions are persisted to SQLite so results can be reviewed and exported later.
-7. **REST API**: FastAPI backend with Pydantic validation schemas for training, prediction, and dataset upload endpoints.
+- Individual student prediction
+- Batch CSV prediction
+- Dataset upload and validation
+- Multiple model benchmarking
+- Model explainability with SHAP
+- Storage of predictions and training history in SQLite
+- An AI-powered placement assistant for guidance and career Q&A
 
----
+## Key Features
+
+- Multi-model benchmarking across common classifiers and boosting algorithms
+- Best-model selection using evaluation metrics such as F1-score, precision, recall, and accuracy
+- SHAP-based feature importance to explain model decisions
+- Interactive dashboard with Plotly visualizations and summary analytics
+- Resume parsing support to prefill candidate data from text
+- CSV upload and bulk prediction export
+- FastAPI backend with Swagger docs
+- SQLite reporting and audit logs for predictions and model runs
+- Streamlit-based frontend with a polished placement portal UI
 
 ## Tech Stack
 
-| Layer | Libraries |
+| Area | Technologies |
 |---|---|
 | Language | Python 3.12+ |
-| ML | Scikit-Learn, XGBoost, LightGBM, CatBoost |
-| Explanations | SHAP, Matplotlib, Seaborn |
-| API | FastAPI, Uvicorn, Pydantic, SQLAlchemy |
-| Database | SQLite |
-| Dashboard | Streamlit, Plotly, HTML/CSS |
+| ML & Data Science | scikit-learn, XGBoost, LightGBM, CatBoost, SHAP, pandas, NumPy |
+| Visualization | Streamlit, Plotly, Matplotlib, Seaborn |
+| API | FastAPI, Uvicorn, Pydantic |
+| Database | SQLite, SQLAlchemy |
 | Testing | Pytest |
 | Deployment | Docker, Docker Compose |
-
----
+| AI Assistant | Groq / Python SDK integration |
 
 ## Project Structure
 
-```
-placement/
+```text
+Student-Placement-Prediction-System/
+├── api/
+│   └── main.py                # FastAPI application and endpoints
 ├── data/
-│   ├── raw/               # Raw CSV files (uploaded or generated)
-│   └── processed/         # Scaled and encoded datasets
-├── models/                # Saved model and preprocessor files
-├── reports/               # Evaluation plots and classification reports
-├── notebooks/             # Exploratory notebooks
+│   └── raw/                   # Raw and generated datasets
+├── database/
+│   └── placement.db           # SQLite database
+├── docs/
+│   ├── architecture_diagrams.md
+│   ├── developer_guide.md
+│   ├── installation_guide.md
+│   ├── project_report.md
+│   └── user_manual.md
+├── logs/
+│   └── placement_system.log   # Application logs
+├── models/
+│   ├── placement_model.pkl
+│   └── preprocessor.pkl
+├── reports/
+│   ├── classification_report.txt
+│   ├── diagnostics_report.md
+│   ├── metrics.json
+│   ├── shap_force.html
+│   ├── shap_summary.png
+│   └── shap_waterfall.png
 ├── src/
 │   ├── config.py
-│   ├── utils.py
 │   ├── database.py
-│   ├── preprocessing.py
-│   ├── feature_engineering.py
-│   ├── train.py
+│   ├── diagnose.py
 │   ├── evaluate.py
+│   ├── explain.py
+│   ├── feature_engineering.py
+│   ├── generate_data.py
+│   ├── kaggle_adapter.py
 │   ├── predict.py
-│   └── explain.py
-├── api/
-│   └── main.py            # FastAPI routes
+│   ├── pregenerate_reports.py
+│   ├── preprocessing.py
+│   ├── train.py
+│   ├── utils.py
+│   └── chatbot.py
 ├── streamlit/
-│   ├── app.py             # Entry point
-│   ├── css/style.css
-│   └── pages/             # Individual dashboard pages
-├── database/              # SQLite files
-├── tests/                 # Pytest suite
-├── docs/                  # Manuals and project report
-├── requirements.txt
+│   ├── app.py
+│   ├── api_client.py
+│   ├── _pages/
+│   └── css/style.css
+├── tests/
+│   ├── test_api.py
+│   ├── test_predict.py
+│   └── test_preprocessing.py
+├── .devcontainer/
+├── .env
+├── .gitignore
 ├── Dockerfile
-└── docker-compose.yml
+├── LICENSE
+├── README.md
+├── docker-compose.yml
+├── requirements.txt
+└── .git
 ```
 
----
+## Prerequisites
+
+- Python 3.12+
+- pip
+- Git
+- Optional: Docker and Docker Compose for containerized setup
 
 ## Getting Started
 
-### Requirements
+### 1) Clone the Repository
 
-- Python 3.12+
-- Git
+```bash
+git clone https://github.com/<your-username>/Student-Placement-Prediction-System.git
+cd Student-Placement-Prediction-System
+```
 
-### Local Setup
+### 2) Create a Virtual Environment
 
-1. **Clone the repo**:
-   ```bash
-   git clone <repository_url>
-   cd placement
-   ```
+```bash
+python -m venv .venv
+```
 
-2. **Install dependencies**:
-   ```bash
-   pip install -r requirements.txt
-   ```
+On Windows:
 
-3. **Generate sample data** (also initialises the database):
-   ```bash
-   python src/generate_data.py
-   ```
+```bash
+.venv\Scripts\activate
+```
 
-4. **Train models**:
-   ```bash
-   python src/train.py
-   ```
+On macOS/Linux:
 
-5. **Start the API and dashboard** (two terminals):
-   ```bash
-   # Terminal 1
-   uvicorn api.main:app --reload --port 8000
+```bash
+source .venv/bin/activate
+```
 
-   # Terminal 2
-   streamlit run streamlit/app.py
-   ```
+### 3) Install Dependencies
 
-6. Open `http://localhost:8501` in your browser.
+```bash
+pip install -r requirements.txt
+```
 
----
+### 4) Initialize Data and Model Assets
 
-### Docker
+```bash
+python src/generate_data.py
+python src/train.py
+```
+
+These steps create the sample dataset, initialize the SQLite database, and train the placement prediction model.
+
+### 5) Run the Backend API
+
+In one terminal:
+
+```bash
+uvicorn api.main:app --reload --port 8000
+```
+
+The API documentation is available at:
+
+- http://localhost:8000/docs
+- http://localhost:8000/redoc
+
+### 6) Launch the Streamlit App
+
+In a second terminal:
+
+```bash
+streamlit run streamlit/app.py
+```
+
+Then open:
+
+- http://localhost:8501
+
+## API Endpoints
+
+The project exposes several endpoints through FastAPI:
+
+- `GET /` – Health/root endpoint
+- `POST /predict` – Predict placement for a single student
+- `POST /predict/batch` – Predict placement for multiple students from a CSV or payload
+- `POST /upload` – Upload a dataset for analysis or processing
+- `POST /train` – Trigger model training
+- `GET /models` – List trained model information
+- `GET /reports/{filename}` – Access generated report files
+- `POST /chat` – Chat-based student guidance endpoint using the AI assistant
+
+## Running with Docker
 
 ```bash
 docker-compose up --build
 ```
 
-- Dashboard: `http://localhost:8501`
-- API docs: `http://localhost:8000/docs`
+Then access:
 
----
+- Streamlit UI: http://localhost:8501
+- API docs: http://localhost:8000/docs
 
-## Tests
+## Testing
+
+Run the test suite with:
 
 ```bash
 pytest tests/ -v
 ```
 
----
+## Usage Notes
+
+- Model files and preprocessing objects are saved under the `models/` directory.
+- Report artifacts such as confusion matrices, SHAP charts, and metrics are generated in `reports/`.
+- The application logs runtime events in `logs/placement_system.log`.
+- A trained model can be reused for fast prediction without retraining.
 
 ## License
 
-MIT
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Acknowledgements
+
+This project is designed for educational and placement analytics use cases, combining modern machine learning and web application practices in a practical student outcome prediction workflow.
