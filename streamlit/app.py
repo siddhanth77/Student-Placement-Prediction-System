@@ -2,6 +2,7 @@ import sys
 import streamlit as st
 from pathlib import Path
 
+
 st.set_page_config(
     page_title="Student Placement Portal",
     page_icon="🎓",
@@ -29,6 +30,7 @@ from training import render_training_page
 from prediction import render_prediction_page
 from explanation import render_explanation_page
 from settings import render_settings_page
+from chatbot import render_chatbot_page
 
 def load_css():
     css_path = Path(__file__).resolve().parent / "css" / "style.css"
@@ -51,14 +53,15 @@ st.sidebar.subheader("Navigation")
 menu_selection = st.sidebar.radio(
     label="Go to page",
     options=[
-        "🏠 Home",
-        "📂 Upload Dataset",
-        "📊 Data Analysis",
-        "🤖 Train Models",
-        "🎯 Predict Placement",
-        "🧠 Explain Prediction",
-        "⚙ Settings"
-    ],
+    "🏠 Home",
+    "📂 Upload Dataset",
+    "📊 Data Analysis",
+    "🤖 Train Models",
+    "🎯 Predict Placement",
+    "🧠 Explain Prediction",
+    "💬 AI Placement Assistant",
+    "⚙ Settings"
+],
     label_visibility="collapsed"
 )
 
@@ -81,6 +84,8 @@ elif active_page == "🧠 Explain Prediction":
     render_explanation_page()
 elif active_page == "⚙ Settings":
     render_settings_page()
+elif active_page == "💬 AI Placement Assistant":
+    render_chatbot_page()
 
 st.sidebar.write("---")
 st.sidebar.markdown("""

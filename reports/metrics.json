@@ -1,5 +1,5 @@
 {
-    "run_id": "RUN_7D0E9EB4",
+    "run_id": "RUN_F196FBE1",
     "best_model_name": "AdaBoost",
     "test_accuracy": 0.6818,
     "test_precision": 0.6783,

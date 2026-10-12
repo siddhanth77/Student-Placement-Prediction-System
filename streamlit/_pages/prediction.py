@@ -1,5 +1,6 @@
 import streamlit as st
 import io
+import pandas as pd
 from src.config import MODELS_DIR, FEATURES
 from src.utils import pandas_read_csv, ensure_feature_columns, normalize_input_dict
 
