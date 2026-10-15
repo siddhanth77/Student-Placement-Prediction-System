@@ -127,7 +127,7 @@ def render_settings_page():
                 db.query(PredictionRecord).delete()
                 db.commit()
                 st.success("Successfully purged prediction history logs.")
-                st.experimental_rerun()
+                st.rerun()
             except Exception as reset_err:
                 st.error(f"Failed to reset predictions: {str(reset_err)}")
             finally:
@@ -145,6 +145,6 @@ def render_settings_page():
                         os.remove(item)
                         
                 st.success("Database drop-and-rebuild succeeded! Cleared active model files.")
-                st.experimental_rerun()
+                st.rerun()
             except Exception as db_drop_err:
                 st.error(f"Rebuild failed: {str(db_drop_err)}")

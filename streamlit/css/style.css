@@ -1,82 +1,159 @@
-/* Premium Glassmorphic Design Theme stylesheet */
+
+/* =========================================================
+   STUDENT PLACEMENT PREDICTION SYSTEM
+   Main Theme: Premium Dark Dashboard
+   Login Theme: Minimal White & Blue
+   ========================================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
 
-/* Typography & Root variables */
+
+/* =========================================================
+   1. ROOT VARIABLES
+   ========================================================= */
+
 :root {
     --primary-glow: rgba(1, 133, 251, 0.25);
+
     --card-bg-dark: rgba(15, 23, 42, 0.65);
     --card-border-dark: rgba(255, 255, 255, 0.08);
+
     --accent-blue: #0284c7;
     --accent-emerald: #10b981;
     --accent-violet: #8b5cf6;
     --accent-rose: #f43f5e;
+
     --text-primary: #f8fafc;
     --text-secondary: #94a3b8;
+
+    --login-blue: #2563eb;
+    --login-text: #183153;
+    --login-muted: #64748b;
+    --login-border: #e2eaf5;
+    --login-background: #f4f8ff;
 }
 
-/* Apply main typography */
+
+/* =========================================================
+   2. GLOBAL APPLICATION STYLING
+   ========================================================= */
+
 .stApp {
     font-family: 'Outfit', sans-serif !important;
-    background: radial-gradient(circle at 50% 0%, #0f172a 0%, #020617 100%) !important;
+
+    background: radial-gradient(
+        circle at 50% 0%,
+        #0f172a 0%,
+        #020617 100%
+    ) !important;
+
     color: var(--text-primary) !important;
 }
 
-/* Glassmorphic card layout wrappers */
+.stApp,
+.stApp p,
+.stApp label,
+.stApp input,
+.stApp button,
+.stApp textarea,
+.stApp select {
+    font-family: 'Outfit', sans-serif !important;
+}
+
+
+/* =========================================================
+   3. GLASSMORPHIC CARDS
+   ========================================================= */
+
 div.glass-card {
     background: var(--card-bg-dark);
+
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
+
     border: 1px solid var(--card-border-dark);
     border-radius: 20px;
+
     padding: 28px;
     margin-bottom: 24px;
-    box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.45);
+
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
+
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     animation: slideIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 div.glass-card:hover {
     transform: translateY(-5px);
+
     border-color: rgba(2, 132, 199, 0.35);
-    box-shadow: 0 16px 48px 0 rgba(2, 132, 199, 0.18);
+
+    box-shadow: 0 16px 48px rgba(2, 132, 199, 0.18);
 }
 
-/* Keyframe animations */
+
+/* =========================================================
+   4. ANIMATIONS
+   ========================================================= */
+
 @keyframes slideIn {
     from {
         opacity: 0;
         transform: translateY(24px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-/* Styled prediction success gauge container */
+
+/* =========================================================
+   5. PREDICTION RESULT CARDS
+   ========================================================= */
+
 .gauge-card {
-    background: linear-gradient(135deg, rgba(16, 185, 129, 0.12), rgba(15, 23, 42, 0.5));
+    background: linear-gradient(
+        135deg,
+        rgba(16, 185, 129, 0.12),
+        rgba(15, 23, 42, 0.5)
+    );
+
     border: 1px solid rgba(16, 185, 129, 0.3);
     border-radius: 20px;
+
     padding: 24px;
     text-align: center;
+
     box-shadow: 0 8px 32px rgba(16, 185, 129, 0.12);
+
     animation: slideIn 0.5s ease-out;
 }
 
-/* Styled prediction alert warning container */
 .danger-card {
-    background: linear-gradient(135deg, rgba(244, 63, 94, 0.12), rgba(15, 23, 42, 0.5));
+    background: linear-gradient(
+        135deg,
+        rgba(244, 63, 94, 0.12),
+        rgba(15, 23, 42, 0.5)
+    );
+
     border: 1px solid rgba(244, 63, 94, 0.3);
     border-radius: 20px;
+
     padding: 24px;
     text-align: center;
+
     box-shadow: 0 8px 32px rgba(244, 63, 94, 0.12);
+
     animation: slideIn 0.5s ease-out;
 }
 
-/* Custom stats blocks styling */
+
+/* =========================================================
+   6. DASHBOARD METRICS
+   ========================================================= */
+
 .metric-container {
     display: flex;
     justify-content: space-between;
@@ -87,43 +164,91 @@ div.glass-card:hover {
 .metric-val {
     font-size: 2.5rem;
     font-weight: 800;
+
     color: #ffffff;
-    background: linear-gradient(135deg, #ffffff 40%, #94a3b8 100%);
+
+    background: linear-gradient(
+        135deg,
+        #ffffff 40%,
+        #94a3b8 100%
+    );
+
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+
     margin: 5px 0;
 }
 
-/* Quick labels info */
+
+/* =========================================================
+   7. BADGES
+   ========================================================= */
+
 .badge {
     display: inline-block;
+
     padding: 6px 12px;
     border-radius: 9999px;
+
     font-size: 0.8rem;
     font-weight: 600;
+
     margin-right: 6px;
+
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
 
-.badge-blue { background: rgba(2, 132, 199, 0.15); color: #38bdf8; border: 1px solid rgba(2, 132, 199, 0.25); }
-.badge-green { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.25); }
-.badge-yellow { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.25); }
+.badge-blue {
+    background: rgba(2, 132, 199, 0.15);
+    color: #38bdf8;
+    border: 1px solid rgba(2, 132, 199, 0.25);
+}
 
-/* Customizing sidebar */
+.badge-green {
+    background: rgba(16, 185, 129, 0.15);
+    color: #34d399;
+    border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.badge-yellow {
+    background: rgba(245, 158, 11, 0.15);
+    color: #fbbf24;
+    border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+
+/* =========================================================
+   8. SIDEBAR
+   ========================================================= */
+
 section[data-testid="stSidebar"] {
     background-color: #030712 !important;
+
     border-right: 1px solid var(--card-border-dark) !important;
 }
 
-/* Custom titles styling */
+
+/* =========================================================
+   9. DASHBOARD TITLES
+   ========================================================= */
+
 .main-title {
     font-weight: 800;
     font-size: 3.2rem;
+
     letter-spacing: -0.04em;
-    background: linear-gradient(135deg, #ffffff 10%, #38bdf8 60%, #8b5cf6 100%);
+
+    background: linear-gradient(
+        135deg,
+        #ffffff 10%,
+        #38bdf8 60%,
+        #8b5cf6 100%
+    );
+
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+
     margin-bottom: 8px;
     padding-bottom: 4px;
 }
@@ -131,12 +256,18 @@ section[data-testid="stSidebar"] {
 .sub-title {
     font-weight: 400;
     color: var(--text-secondary);
+
     font-size: 1.15rem;
     margin-bottom: 32px;
+
     line-height: 1.6;
 }
 
-/* Custom tab overrides to make it feel premium */
+
+/* =========================================================
+   10. DASHBOARD TABS
+   ========================================================= */
+
 .stTabs [data-baseweb="tab-list"] {
     gap: 12px;
 }
@@ -144,16 +275,312 @@ section[data-testid="stSidebar"] {
 .stTabs [data-baseweb="tab"] {
     height: 48px;
     white-space: pre-wrap;
+
     background-color: rgba(255, 255, 255, 0.03);
-    border-radius: 8px 8px 0px 0px;
+
+    border-radius: 8px 8px 0 0;
+
     color: var(--text-secondary);
+
     border: 1px solid var(--card-border-dark);
+
     padding: 10px 20px;
+
     font-weight: 600;
 }
 
 .stTabs [aria-selected="true"] {
     background-color: rgba(2, 132, 199, 0.15) !important;
+
     color: #38bdf8 !important;
+
     border-color: rgba(2, 132, 199, 0.3) !important;
+}
+
+
+/* =========================================================
+   11. MINIMAL LOGIN PAGE
+   This section activates when login.py contains:
+   <div class="login-page-marker"></div>
+   ========================================================= */
+
+/* Login background */
+
+.stApp:has(.login-page-marker) {
+    background: linear-gradient(
+        135deg,
+        #f8fbff 0%,
+        #eef5ff 50%,
+        #f8fafc 100%
+    ) !important;
+
+    color: var(--login-text) !important;
+}
+
+
+/* Hide the sidebar on the login page */
+
+.stApp:has(.login-page-marker)
+section[data-testid="stSidebar"] {
+    display: none !important;
+}
+
+
+/* Login typography */
+
+.stApp:has(.login-page-marker) h1,
+.stApp:has(.login-page-marker) h2,
+.stApp:has(.login-page-marker) h3,
+.stApp:has(.login-page-marker) p,
+.stApp:has(.login-page-marker) label {
+    font-family: 'Outfit', sans-serif !important;
+}
+
+
+/* Login heading */
+
+.login-heading {
+    text-align: center;
+
+    margin: 20px 0 28px;
+    padding: 12px 0;
+}
+
+.login-icon {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.login-heading h1 {
+    font-size: 30px !important;
+    font-weight: 800 !important;
+
+    letter-spacing: -1px;
+    line-height: 1.3;
+
+    color: #183153 !important;
+
+    margin: 0 0 8px;
+}
+
+.login-heading h1 span {
+    color: #2563eb !important;
+}
+
+.login-heading p {
+    color: #64748b !important;
+
+    font-size: 15px;
+    line-height: 1.6;
+
+    margin: 0;
+}
+
+
+/* Login and registration form cards */
+
+.stApp:has(.login-page-marker)
+div[data-testid="stForm"] {
+    background: #ffffff !important;
+
+    border: 1px solid #e2eaf5 !important;
+    border-radius: 14px !important;
+
+    padding: 22px !important;
+
+    box-shadow: 0 12px 35px rgba(36, 73, 125, 0.09) !important;
+}
+
+
+/* Input labels */
+
+.stApp:has(.login-page-marker)
+div[data-testid="stTextInput"] label {
+    color: #263b59 !important;
+    font-weight: 600 !important;
+}
+
+
+/* Input fields */
+
+.stApp:has(.login-page-marker)
+div[data-testid="stTextInput"] input {
+    background: #ffffff !important;
+
+    color: #172b4d !important;
+
+    border: 1px solid #d7e2f0 !important;
+    border-radius: 8px !important;
+}
+
+.stApp:has(.login-page-marker)
+div[data-testid="stTextInput"] input::placeholder {
+    color: #94a3b8 !important;
+}
+
+.stApp:has(.login-page-marker)
+div[data-testid="stTextInput"] input:focus {
+    border-color: #3b82f6 !important;
+
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.12) !important;
+}
+
+
+/* Login and registration submit buttons */
+
+.stApp:has(.login-page-marker)
+div[data-testid="stForm"] button {
+    background: linear-gradient(
+        135deg,
+        #1683e8,
+        #2563eb
+    ) !important;
+
+    color: #ffffff !important;
+
+    border: none !important;
+    border-radius: 8px !important;
+
+    min-height: 44px;
+
+    font-weight: 600 !important;
+
+    transition: filter 0.2s ease, transform 0.2s ease;
+}
+
+.stApp:has(.login-page-marker)
+div[data-testid="stForm"] button:hover {
+    filter: brightness(0.94);
+    transform: translateY(-1px);
+}
+
+
+/* Login and Register tabs */
+
+.stApp:has(.login-page-marker)
+.stTabs [data-baseweb="tab-list"] {
+    gap: 8px;
+
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.stApp:has(.login-page-marker)
+.stTabs [data-baseweb="tab"] {
+    background: transparent !important;
+
+    color: #64748b !important;
+
+    border: none !important;
+    border-radius: 8px 8px 0 0 !important;
+
+    font-weight: 600 !important;
+
+    padding: 10px 20px;
+}
+
+.stApp:has(.login-page-marker)
+.stTabs [aria-selected="true"] {
+    color: #2563eb !important;
+
+    border-bottom: 2px solid #2563eb !important;
+
+    background: #eff6ff !important;
+}
+
+
+/* Login success, error and information messages */
+
+.stApp:has(.login-page-marker)
+div[data-testid="stAlert"] {
+    border-radius: 10px;
+}
+
+
+/* Login page links */
+
+.stApp:has(.login-page-marker) a {
+    color: #2563eb !important;
+}
+
+
+/* =========================================================
+   12. RESPONSIVE LOGIN DESIGN
+   ========================================================= */
+
+@media (max-width: 768px) {
+    .login-heading {
+        margin-top: 12px;
+        margin-bottom: 20px;
+    }
+
+    .login-heading h1 {
+        font-size: 25px !important;
+    }
+
+    .login-icon {
+        font-size: 36px;
+    }
+
+    .stApp:has(.login-page-marker)
+    div[data-testid="stForm"] {
+        padding: 16px !important;
+    }
+
+    .main-title {
+        font-size: 2.2rem;
+    }
+
+    .metric-val {
+        font-size: 2rem;
+    }
+}
+
+
+/* LOGIN PAGE: FORCE BOTH TAB LABELS TO BE VISIBLE */
+
+.stApp:has(.login-page-marker) div[data-baseweb="tab-list"] button,
+.stApp:has(.login-page-marker) div[data-baseweb="tab-list"] button *,
+.stApp:has(.login-page-marker) div[data-baseweb="tab-list"] [role="tab"],
+.stApp:has(.login-page-marker) div[data-baseweb="tab-list"] [role="tab"] * {
+    color: #334155 !important;
+    -webkit-text-fill-color: #334155 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Selected tab */
+.stApp:has(.login-page-marker) div[data-baseweb="tab-list"] [aria-selected="true"],
+.stApp:has(.login-page-marker) div[data-baseweb="tab-list"] [aria-selected="true"] * {
+    color: #2563eb !important;
+    -webkit-text-fill-color: #2563eb !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Tab underline */
+.stApp:has(.login-page-marker) div[data-baseweb="tab-highlight"] {
+    background-color: #2563eb !important;
+}
+
+/* Login and Register selector buttons */
+.stApp:has(.login-page-marker) div[data-testid="stButton"] button {
+    background-color: #2563eb !important;
+    color: #ffffff !important;
+    border: 1px solid #2563eb !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    opacity: 1 !important;
+    min-height: 44px !important;
+}
+
+/* Hover effect */
+.stApp:has(.login-page-marker) div[data-testid="stButton"] button:hover {
+    background-color: #1d4ed8 !important;
+    color: #ffffff !important;
+    border-color: #1d4ed8 !important;
+}
+
+/* Keep button text visible */
+.stApp:has(.login-page-marker) div[data-testid="stButton"] button p {
+    color: #ffffff !important;
 }
